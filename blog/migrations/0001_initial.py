@@ -21,7 +21,7 @@ class Migration(SchemaMigration):
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('category', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['blog.Category'])),
             ('title', self.gf('django.db.models.fields.CharField')(max_length=240)),
-            ('description', self.gf('django.db.models.fields.TextField')()),
+            ('content', self.gf('django.db.models.fields.TextField')()),
         ))
         db.send_create_signal(u'blog', ['Article'])
 
@@ -38,7 +38,7 @@ class Migration(SchemaMigration):
         u'blog.article': {
             'Meta': {'object_name': 'Article'},
             'category': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['blog.Category']"}),
-            'description': ('django.db.models.fields.TextField', [], {}),
+            'content': ('django.db.models.fields.TextField', [], {}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '240'})
         },
