@@ -5,6 +5,9 @@ import sys
 
 from random import randint, choice
 
+from django.utils import timezone
+from datetime import datetime
+
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "stock.settings")
 
 from blog.models import Category, Article
@@ -38,5 +41,6 @@ for category_title in category_titles:
 
 for category in Category.objects.all():
     for i in range(randint(30, 120)):
-        category.article_set.create(title=text(2, 4), content=html(300, 1200))
+        publication_date = datetime(choice(range(2012, 2015)), choice(range(1, 10)), choice(range(1, 25)), tzinfo=timezone.utc)
+        category.article_set.create(title=text(2, 4), content=html(300, 1200), publication_date=publication_date)
 
