@@ -1,0 +1,28 @@
+<ul class="pagination">
+  {% if collection.number != 1 %}
+    <li><a href="?"><span class="glyphicon glyphicon-step-backward"></span></a></li>
+  {% else %}
+    <li class="disabled"><a href="#"><span class="glyphicon glyphicon-step-backward"></span></a></li>
+  {% endif%}
+
+  {% if collection.has_previous %}
+    <li><a href="?page={{ collection.previous_page_number }}"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+  {% else %}
+    <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+  {% endif%}
+
+  <li class="active" ><a href="#">{{ collection.number }}</a></li>
+
+  {% if collection.has_next %}
+    <li><a href="?page={{ collection.next_page_number }}"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
+  {% else %}
+    <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
+  {% endif%}
+
+  {% if collection.number != collection.paginator.num_pages %}
+    <li><a href="?page={{collection.paginator.num_pages}}"><span class="glyphicon glyphicon-step-forward"></span></a></li>
+  {% else %}
+    <li class="disabled"><a href="#"><span class="glyphicon glyphicon-step-forward"></span></a></li>
+  {% endif%}
+</ul>
+

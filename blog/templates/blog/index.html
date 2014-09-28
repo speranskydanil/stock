@@ -3,6 +3,8 @@
 {% block title %}Blog{% endblock %}
 
 {% block content %}
+  {% include 'blog/paginator.html' with collection=articles %}
+
   <section class="articles">
     {% for article in articles %}
       <article>
@@ -13,5 +15,7 @@
       </article>
     {% endfor %}
   </section>
+
+  {% include 'blog/paginator.html' with collection=articles %}
 {% endblock %}
 
