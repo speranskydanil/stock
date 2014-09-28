@@ -35,7 +35,7 @@ header strong {
 }
 
 main {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 main nav {
@@ -61,7 +61,7 @@ main nav a:hover {
 footer {
   height: 102px;
   padding: 20px;
-  border: 2px dashed #ccc;
+  border: 2px dashed #bca;
   border-bottom: none;
   background-image: url(../images/logo-background.png);
   border-top-left-radius: 10px;

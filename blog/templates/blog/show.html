@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block content %}
+  <article class="article">
+    <time><span class="glyphicon glyphicon-time"></span> {{ article.publication_date }}</time>
+    <div class="category"><span class="glyphicon glyphicon-folder-open"></span> &nbsp;{{ article.category.title }}</div>
+    <h1>{{ article.title }}</h1>
+    <div>{{ article.content|safe }}</div>
+  </article>
+{% endblock %}
+

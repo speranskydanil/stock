@@ -1,5 +1,5 @@
 .articles article {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .articles article > time {
@@ -9,10 +9,50 @@
 .articles article > h3 {
   margin: 0px;
   margin-bottom: 10px;
+  padding: 5px 20px;
+  background-image: url(../images/logo-background.png);
+  background-color: #cdb;
+  border-radius: 5px;
+  font-size: 24px;
+}
+
+.articles article > h3 > a {
+  color: #333;
+}
+
+.articles article > h3 > a:hover {
+  color: #555;
 }
 
 .articles article .category {
   margin: 4px 0px;
   font-size: 16px;
+}
+
+.articles article .category span {
+  font-size: 14px;
+}
+
+.article > time {
+  color: #555;
+}
+
+.article > h1 {
+  margin: 0px;
+  margin-bottom: 10px;
+  padding: 5px 20px;
+  background-image: url(../images/logo-background.png);
+  background-color: #cdb;
+  border-radius: 5px;
+  font-size: 30px;
+}
+
+.article .category {
+  margin: 4px 0px;
+  font-size: 18px;
+}
+
+.article .category span {
+  font-size: 14px;
 }
 

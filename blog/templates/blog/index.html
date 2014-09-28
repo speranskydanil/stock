@@ -6,9 +6,9 @@
   <section class="articles">
     {% for article in articles %}
       <article>
-        <time>{{ article.publication_date }}</time>
-        <div class="category">{{ article.category.title }}</div>
-        <h3>{{ article.title }}</h3>
+        <time><span class="glyphicon glyphicon-time"></span> {{ article.publication_date }}</time>
+        <div class="category"><span class="glyphicon glyphicon-folder-open"></span> &nbsp;{{ article.category.title }}</div>
+        <h3><a href="{% url 'blog:show' article.id %}">{{ article.title }}</a></h3>
         <div>{{ article.content|truncatewords_html:200|safe }}</div>
       </article>
     {% endfor %}
