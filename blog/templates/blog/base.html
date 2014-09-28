@@ -2,11 +2,11 @@
 
 {% block content %}
   <div class="row">
-    <div class="col-md-9">
+    <section class="col-md-9">
       {% block blog_content%}{% endblock %}
-    </div>
-    <div class="col-md-3">
-      <div class="recent_articles_block">
+    </section>
+    <aside class="sidebar col-md-3">
+      <section class="recent_articles_block">
         <h3>Recent articles:</h3>
 
         {% for article in recent_articles %}
@@ -23,8 +23,8 @@
             <a class ="link" href="{% url 'blog:show' article.id %}">{{ article.title }}</a>            
           </article>
         {% endfor %}
-      </div>
-      <div class="categories_block">
+      </section>
+      <section class="categories_block">
         <h3>Categories:</h3>
 
         {% for category in categories %}
@@ -33,8 +33,8 @@
             {{ category.article_set.count }}
           </article>
         {% endfor %}
-      </div>
-    </div>
+      </section>
+    </aside>
   </div>
 {% endblock %}
 
