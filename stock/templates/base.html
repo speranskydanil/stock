@@ -9,11 +9,13 @@
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}">
 
     <script src="{% static 'js/html5shiv.js' %}"></script>
     <script src="{% static 'js/jquery.js' %}"></script>
     <script src="{% static 'js/bootstrap.js' %}"></script>
     <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/blog.js' %}"></script>
   </head>
 
   <body>
@@ -24,8 +26,8 @@
 
       <main>
         <nav>
-          <a href="#">The Blog</a>
-          <a href="#">About Us</a>
+          <a href="{% url 'blog:index' %}">The Blog</a>
+          <a href="{% url 'about' %}">About Us</a>
           <a href="#">Contact Us</a>
         </nav>
 
@@ -36,8 +38,8 @@
     <div class="container">
       <footer class="row">
         <section class="links col-md-2">
-          <a href="#">The Blog</a>
-          <a href="#">About Us</a>
+          <a href="{% url 'blog:index' %}">The Blog</a>
+          <a href="{% url 'about' %}">About Us</a>
           <a href="#">Contact Us</a>
         </section>
 

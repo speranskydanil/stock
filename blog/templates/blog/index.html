@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Blog{% endblock %}
+
+{% block content %}
+  <section class="articles">
+    {% for article in articles %}
+      <article>
+        <time>{{ article.publication_date }}</time>
+        <div class="category">{{ article.category.title }}</div>
+        <h3>{{ article.title }}</h3>
+        <div>{{ article.content|truncatewords_html:200|safe }}</div>
+      </article>
+    {% endfor %}
+  </section>
+{% endblock %}
+

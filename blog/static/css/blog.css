@@ -1,0 +1,18 @@
+.articles article {
+  margin-bottom: 20px;
+}
+
+.articles article > time {
+  color: #555;
+}
+
+.articles article > h3 {
+  margin: 0px;
+  margin-bottom: 10px;
+}
+
+.articles article .category {
+  margin: 4px 0px;
+  font-size: 16px;
+}
+

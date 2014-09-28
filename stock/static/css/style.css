@@ -38,6 +38,10 @@ main {
   margin-bottom: 20px;
 }
 
+main nav {
+  margin-bottom: 20px;
+}
+
 main nav a {
   display: inline-block;
   margin-right: 20px;
