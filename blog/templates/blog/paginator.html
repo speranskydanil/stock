@@ -1,3 +1,4 @@
+{% if collection.paginator.num_pages > 1 %}
 <ul class="pagination">
   {% if collection.number != 1 %}
     <li><a href="?"><span class="glyphicon glyphicon-step-backward"></span></a></li>
@@ -25,4 +26,5 @@
     <li class="disabled"><a href="#"><span class="glyphicon glyphicon-step-forward"></span></a></li>
   {% endif%}
 </ul>
+{% endif %}
 
