@@ -89,6 +89,12 @@
   color: #555;
 }
 
+.recent_articles_block.fixed {
+  position: fixed;
+  top: 20px;
+  width: 262px;
+}
+
 .pagination {
   margin: 0px;
   margin-bottom: 20px;
