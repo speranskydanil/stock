@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-md-9">
+      {% block blog_content%}{% endblock %}
+    </div>
+    <div class="col-md-3">
+      <div class="recent_articles_block">
+        <h3>Recent articles:</h3>
+
+        {% for article in recent_articles %}
+          <article>
+            <time>
+              <span class="glyphicon glyphicon-time"></span>
+              {{ article.publication_date|date:'Y-m-d H:m' }}
+            </time>
+            <div class="category">
+              <span class="glyphicon glyphicon-folder-open"></span>
+              &nbsp;
+              <a href="{% url 'blog:show_category' article.category.id %}">{{ article.category.title }}</a>
+            </div>
+            <a class ="link" href="{% url 'blog:show' article.id %}">{{ article.title }}</a>            
+          </article>
+        {% endfor %}
+      </div>
+      <div class="categories_block">
+        <h3>Categories:</h3>
+
+        {% for category in categories %}
+          <article>
+            <a href="{% url 'blog:show_category' category.id %}">{{ category.title }}</a>&nbsp;
+            {{ category.article_set.count }}
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
+

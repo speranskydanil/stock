@@ -3,6 +3,13 @@ from django.views.decorators.http import require_GET
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from blog.models import Article, Category
 
+_render = render
+
+def render(request, template, context):
+    context['categories'] = Category.objects.select_related().all()
+    context['recent_articles'] = Article.objects.select_related().all()[:7]
+    return _render(request, template, context)
+
 def paginated(objects, request):
     paginator = Paginator(objects, 20)
     page = request.GET.get('page')

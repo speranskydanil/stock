@@ -5,7 +5,7 @@
     <article>
       <time>
         <span class="glyphicon glyphicon-time"></span>
-        {{ article.publication_date }}
+        {{ article.publication_date|date:'Y-m-d H:m' }}
       </time>
       <div class="category">
         <span class="glyphicon glyphicon-folder-open"></span>
