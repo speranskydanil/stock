@@ -10,7 +10,7 @@
   margin: 0px;
   margin-bottom: 10px;
   padding: 5px 20px;
-  background-image: url(../images/logo-background.png);
+  background-image: url(../images/texture.png);
   background-color: #cdb;
   border-radius: 5px;
   font-size: 24px;
@@ -41,7 +41,7 @@
   margin: 0px;
   margin-bottom: 10px;
   padding: 5px 20px;
-  background-image: url(../images/logo-background.png);
+  background-image: url(../images/texture.png);
   background-color: #cdb;
   border-radius: 5px;
   font-size: 30px;
@@ -67,7 +67,7 @@
 .pagination > .active > a:hover,
 .pagination > .disabled > a,
 .pagination > .disabled > a:hover {
-  background-image: url(../images/logo-background.png);
+  background-image: url(../images/texture.png);
   background-color: #eee;
   border: 1px solid #bbb;
   color: #555;

@@ -18,7 +18,7 @@ body > .wrapper:after {
 
 header {
   margin-bottom: 20px;
-  background-image: url(../images/logo-background.png);
+  background-image: url(../images/texture.png);
   background-color: #482;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -63,7 +63,7 @@ footer {
   padding: 20px;
   border: 2px dashed #bca;
   border-bottom: none;
-  background-image: url(../images/logo-background.png);
+  background-image: url(../images/texture.png);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
