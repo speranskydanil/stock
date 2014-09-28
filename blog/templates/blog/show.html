@@ -11,7 +11,7 @@
     <div class="category">
       <span class="glyphicon glyphicon-folder-open"></span>
       &nbsp;
-      <a href="{% url 'blog:show_category' article.category.id %}">{{ article.category.title }}</a>
+      {% link_to article.category.title 'blog:show_category' article.category.id %}
     </div>
     <h1>{{ article.title }}</h1>
     <div>{{ article.content|safe }}</div>

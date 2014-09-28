@@ -10,12 +10,12 @@
       <div class="category">
         <span class="glyphicon glyphicon-folder-open"></span>
         &nbsp;
-        <a href="{% url 'blog:show_category' article.category.id %}">{{ article.category.title }}</a>
+        {% link_to article.category.title 'blog:show_category' article.category.id %}
       </div>
-      <h3><a href="{% url 'blog:show' article.id %}">{{ article.title }}</a></h3>
+      <h3>{% link_to article.title 'blog:show' article.id %}</h3>
       <div>
         {{ article.content|truncatewords_html:200|safe }}
-        <a href="{% url 'blog:show' article.id %}">Read more</a>
+        {% link_to 'Read more' 'blog:show' article.id %}
       </div>
     </article>
   {% endfor %}

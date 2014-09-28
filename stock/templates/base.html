@@ -31,10 +31,10 @@
           {% endfor %}
         {% endif %}
 
-        <nav>
-          <a href="{% url 'blog:index' %}" class="{% if location == 'blog' %}active{% endif %}">The Blog</a>
-          <a href="{% url 'about' %}" class="{% if location == 'about' %}active{% endif %}">About Us</a>
-          <a href="{% url 'contact' %}" class="{% if location == 'contact' %}active{% endif %}">Contact Us</a>
+        <nav class="{{ location }}">
+          {% link_to 'The Blog' 'blog:index' 'attrs:class="blog"' %}
+          {% link_to 'About Us' 'about' 'attrs:class="about"' %}
+          {% link_to 'Contact Us' 'contact' 'attrs:class="contact"' %}
         </nav>
 
         {% block content %}{% endblock %}
@@ -45,9 +45,9 @@
       <footer>
         <div class="row">
           <section class="links col-md-2">
-            <a href="{% url 'blog:index' %}">The Blog</a>
-            <a href="{% url 'about' %}">About Us</a>
-            <a href="{% url 'contact' %}">Contact Us</a>
+            {% link_to 'The Blog' 'blog:index' %}
+            {% link_to 'About Us' 'about'%}
+            {% link_to 'Contact Us' 'contact' %}
           </section>
 
           <section class="copyright col-md-2">

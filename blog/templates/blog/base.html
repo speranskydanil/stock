@@ -18,9 +18,9 @@
             <div class="category">
               <span class="glyphicon glyphicon-folder-open"></span>
               &nbsp;
-              <a href="{% url 'blog:show_category' article.category.id %}">{{ article.category.title }}</a>
+              {% link_to article.category.title 'blog:show_category' article.category.id %}
             </div>
-            <a class ="link" href="{% url 'blog:show' article.id %}">{{ article.title }}</a>            
+            {% link_to article.title 'blog:show' article.id 'attrs:class ="link"' %}
           </article>
         {% endfor %}
       </section>
@@ -29,7 +29,7 @@
 
         {% for category in categories %}
           <article>
-            <a href="{% url 'blog:show_category' category.id %}">{{ category.title }}</a>&nbsp;
+            {% link_to category.title 'blog:show_category' category.id %}&nbsp;
             {{ category.article_set.count }}
           </article>
         {% endfor %}
