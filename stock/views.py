@@ -6,7 +6,7 @@ from stock.models import Message
 
 @require_GET
 def about(request):
-    return render(request, 'about.html')
+    return render(request, 'about.html', { 'location': 'about' })
 
 def contact(request):
     if request.method == 'POST':
@@ -20,5 +20,5 @@ def contact(request):
     else:
         form = ContactForm()
 
-    return render(request, 'contact.html', { 'form': form })
+    return render(request, 'contact.html', { 'form': form, 'location': 'contact' })
 

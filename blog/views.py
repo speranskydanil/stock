@@ -8,6 +8,7 @@ _render = render
 def render(request, template, context):
     context['categories'] = Category.objects.select_related().all()
     context['recent_articles'] = Article.objects.select_related().all()[:7]
+    context['location'] = 'blog'
     return _render(request, template, context)
 
 def paginated(objects, request):

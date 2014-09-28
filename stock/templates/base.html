@@ -32,9 +32,9 @@
         {% endif %}
 
         <nav>
-          <a href="{% url 'blog:index' %}">The Blog</a>
-          <a href="{% url 'about' %}">About Us</a>
-          <a href="{% url 'contact' %}">Contact Us</a>
+          <a href="{% url 'blog:index' %}" class="{% if location == 'blog' %}active{% endif %}">The Blog</a>
+          <a href="{% url 'about' %}" class="{% if location == 'about' %}active{% endif %}">About Us</a>
+          <a href="{% url 'contact' %}" class="{% if location == 'contact' %}active{% endif %}">Contact Us</a>
         </nav>
 
         {% block content %}{% endblock %}
