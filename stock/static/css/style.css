@@ -80,3 +80,10 @@ footer .links a {
   color: #933;
 }
 
+@media (max-width: 500px) {
+  header h1 {
+    padding: 20px 40px;
+    font-size: 20px
+  }
+}
+
