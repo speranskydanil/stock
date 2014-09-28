@@ -1,25 +1,32 @@
 from django.shortcuts import render
 from django.views.decorators.http import require_GET
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from blog.models import Article
+from blog.models import Article, Category
+
+def paginated(objects, request):
+    paginator = Paginator(objects, 20)
+    page = request.GET.get('page')
+
+    try:
+        return paginator.page(page)
+    except PageNotAnInteger:
+        return paginator.page(1)
+    except EmptyPage:
+        return paginator.page(paginator.num_pages)
 
 @require_GET
 def index(request):
-    articles = Article.objects.select_related().all()
-    page = request.GET.get('page')
-    paginator = Paginator(articles, 20)
-
-    try:
-        articles = paginator.page(page)
-    except PageNotAnInteger:
-        articles = paginator.page(1)
-    except EmptyPage:
-        articles = paginator.page(paginator.num_pages)
-
+    articles = paginated(Article.objects.select_related().all(), request)
     return render(request, 'blog/index.html', { 'articles': articles })
 
 @require_GET
 def show(request, id):
     article = Article.objects.get(id=id)
     return render(request, 'blog/show.html', { 'article': article })
+
+@require_GET
+def show_category(request, id):
+    category = Category.objects.get(id=id)
+    articles = paginated(category.article_set.all(), request)
+    return render(request, 'blog/show_category.html', { 'category': category, 'articles': articles })
 
