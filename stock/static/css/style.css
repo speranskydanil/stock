@@ -72,3 +72,10 @@ footer .links a {
   display: block;
 }
 
+.form-errors {
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+  color: #933;
+}
+

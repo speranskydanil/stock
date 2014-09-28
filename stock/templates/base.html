@@ -25,10 +25,16 @@
       </header>
 
       <main>
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-info">{{ message }}</div>
+          {% endfor %}
+        {% endif %}
+
         <nav>
           <a href="{% url 'blog:index' %}">The Blog</a>
           <a href="{% url 'about' %}">About Us</a>
-          <a href="#">Contact Us</a>
+          <a href="{% url 'contact' %}">Contact Us</a>
         </nav>
 
         {% block content %}{% endblock %}
@@ -40,7 +46,7 @@
         <section class="links col-md-2">
           <a href="{% url 'blog:index' %}">The Blog</a>
           <a href="{% url 'about' %}">About Us</a>
-          <a href="#">Contact Us</a>
+          <a href="{% url 'contact' %}">Contact Us</a>
         </section>
 
         <section class="copyright col-md-2">

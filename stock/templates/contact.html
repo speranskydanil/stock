@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Contact Us{% endblock %}
+
+{% block content %}
+  <form action="{% url 'contact' %}" method="post">{% csrf_token %}
+    {% include 'form.html' %}
+
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+{% endblock %}
+
