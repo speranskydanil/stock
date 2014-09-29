@@ -28,7 +28,7 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'south',
+    'pipeline',
     'stock',
     'blog'
 )
@@ -87,6 +88,30 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = '/var/www/stock/static'
+
+STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
+
+PIPELINE_CSS = {
+    'main': {
+        'source_filenames': (
+          'css/*.css',
+          'blog/css/*.css'
+        ),
+        'output_filename': 'css/main.css'
+    }
+}
+
+PIPELINE_JS = {
+    'main': {
+        'source_filenames': (
+          'js/*.js',
+          'blog/js/*.js'
+        ),
+        'output_filename': 'js/main.js',
+    }
+}
 
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'stock/templates'),
