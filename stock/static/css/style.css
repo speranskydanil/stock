@@ -1,14 +1,20 @@
 html,
 body {
-   margin: 0px;
-   padding: 0px;
-   height: 100%;
- }
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+}
 
- body > .wrapper {
+h1,
+h2,
+h3 {
+  margin: 0px 0px 10px 0px;
+}
+
+body > .wrapper {
   min-height: 100%;
   margin-bottom: -102px;
- }
+}
 
 body > .wrapper:after {
   content: "";
@@ -45,6 +51,7 @@ main nav {
 main nav a {
   display: inline-block;
   margin-right: 20px;
+  margin-bottom: 5px;
   padding: 5px 20px;
   font-size: 20px;
   font-weight: bold;
@@ -59,6 +66,45 @@ main nav.blog .blog {
   color: #482;
   text-decoration: none;
   background: #f5f5f5;
+}
+
+.auth {
+  margin-bottom: 20px;
+}
+
+.auth a {
+  font-weight: bold;
+}
+
+.auth form {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.auth form input,
+.auth .sign-in,
+.auth .sign-up {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 5px 20px;
+  border: none;
+  background-image: url(../images/texture.png);
+  background-color: #482;
+  font-weight: bold;
+  color: #f5f5f5;
+  border-radius: 5px;
+  box-shadow: 1px 1px 2px 0px rgba(128, 128, 128, 0.5);
+}
+
+.auth form input:hover,
+.auth .sign-in:hover,
+.auth .sign-up:hover {
+  background-color: #371;
+  text-decoration: none;
+}
+
+.auth span {
+  color: #777;
 }
 
 footer {

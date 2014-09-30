@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Sign up{% endblock %}
+
+{% block content %}
+<div class='col-md-6'>
+  <h2>Sign up</h2>
+
+  <form action="{% url 'sign_up' %}" method="post">{% csrf_token %}
+    {% include '_form.html' %}
+
+    <button type="submit" class="btn btn-default">Sign up</button>
+  </form>
+</div>
+{% endblock %}
+

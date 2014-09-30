@@ -26,11 +26,26 @@
           {% endfor %}
         {% endif %}
 
-        <nav class="{{ location }}">
-          {% link_to 'The Blog' 'blog:index' 'attrs:class="blog"' %}
-          {% link_to 'About Us' 'about' 'attrs:class="about"' %}
-          {% link_to 'Contact Us' 'contact' 'attrs:class="contact"' %}
-        </nav>
+        <div class="row">
+          <nav class="{{ location }} col-md-6">
+            {% link_to 'The Blog' 'blog:index' 'attrs:class="blog"' %}
+            {% link_to 'About Us' 'about' 'attrs:class="about"' %}
+            {% link_to 'Contact Us' 'contact' 'attrs:class="contact"' %}
+          </nav>
+
+          <section class="auth col-md-3 col-md-offset-3">
+            {% if user.is_authenticated %}
+              <span class="glyphicon glyphicon-user"></span>&nbsp;
+              <a href="#">{{ user.username }}</a>
+              <form action="{% url 'sign_out' %}" method="post">{% csrf_token %}
+                <input type="submit" value="Sign out">
+              </form>
+            {% else %}
+              {% link_to 'Sign in' 'sign_in' 'attrs:class="sign-in"' %}
+              {% link_to 'Sign up' 'sign_up' 'attrs:class="sign-up"' %}
+            {% endif %}
+          </section>
+        </div>
 
         {% block content %}{% endblock %}
       </main>

@@ -3,6 +3,8 @@
 {% block title %}Contact Us{% endblock %}
 
 {% block content %}
+  <h2>Contact Us</h2>
+
   <form action="{% url 'contact' %}" method="post">{% csrf_token %}
     {% include '_form.html' %}
 

@@ -16,7 +16,6 @@ add_to_builtins('stock.templatetags.helpers')
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
@@ -29,7 +28,6 @@ DEBUG = True
 TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
 
 # Application definition
 
@@ -58,7 +56,6 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'stock.urls'
 
 WSGI_APPLICATION = 'stock.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
@@ -93,7 +90,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
@@ -131,3 +127,7 @@ TEMPLATE_DIRS = (
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'stock/static'),
 )
+
+LOGIN_URL = '/sign_in'
+LOGIN_REDIRECT_URL = '/'
+
