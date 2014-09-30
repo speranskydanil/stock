@@ -15,7 +15,7 @@
       <h3>{% link_to article.title 'blog:show' article.id %}</h3>
       <div>
         {{ article.content|truncatewords_html:200|safe }}
-        {% link_to 'Read more' 'blog:show' article.id %}
+        {% link_to 'Read more' 'blog:show' article.id 'attrs:class="read-more"' %}
       </div>
     </article>
   {% endfor %}

@@ -33,6 +33,14 @@
   font-size: 14px;
 }
 
+.articles article .read-more {
+  display: block;
+}
+
+.article {
+  margin-bottom: 20px;
+}
+
 .article > time {
   color: #555;
 }

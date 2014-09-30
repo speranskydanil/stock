@@ -4,7 +4,7 @@
 
 {% block blog_content %}
   {% if user.is_authenticated %}
-    <a href="{% url 'blog:new' %}" class="blog-btn">New article</a>
+    {% link_to 'New article' 'blog:new' 'attrs:class="blog-btn"' %}
     <div class="clear"></div>
   {% endif %}
   {% include 'blog/_articles.html' %}

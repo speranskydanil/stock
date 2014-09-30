@@ -16,5 +16,9 @@
     <h1>{{ article.title }}</h1>
     <div>{{ article.content|safe }}</div>
   </article>
+
+  {% if article.author == user %}
+    {% link_to 'Edit article' 'blog:edit' article.id 'attrs:class="blog-btn"' %}
+  {% endif %}
 {% endblock %}
 

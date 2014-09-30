@@ -42,12 +42,33 @@ def new(request, category = None):
 
         if form.is_valid():
             article = form.save()
+            article.author = request.user
+            article.save()
             messages.info(request, 'The article is created.')
             return redirect('blog:show', article.id)
     else:
         form = ArticleForm(initial={ 'category': category })
 
     return render(request, 'blog/new.html', { 'form': form })
+
+@login_required
+def edit(request, id):
+    article = Article.objects.get(id=id)
+
+    if article.author != request.user:
+        return redirect('blog:index')
+
+    if request.method == 'POST':
+        form = ArticleForm(request.POST, instance=article)
+
+        if form.is_valid():
+            form.save()
+            messages.info(request, 'The article is updated.')
+            return redirect('blog:show', article.id)
+    else:
+        form = ArticleForm(instance=article)
+
+    return render(request, 'blog/edit.html', { 'form': form })
 
 @require_GET
 def show_category(request, id):
