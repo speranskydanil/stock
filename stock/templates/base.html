@@ -36,7 +36,7 @@
           <section class="auth col-md-3 col-md-offset-3">
             {% if user.is_authenticated %}
               <span class="glyphicon glyphicon-user"></span>&nbsp;
-              <a href="#">{{ user.username }}</a>
+              {% link_to user.username 'profile' %}
               <form action="{% url 'sign_out' %}" method="post">{% csrf_token %}
                 <input type="submit" value="Sign out">
               </form>
