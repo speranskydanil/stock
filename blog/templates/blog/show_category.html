@@ -5,6 +5,10 @@
 {% block blog_content %}
   <article class="category">
     <h1>{{ category.title }}</h1>
+    {% if user.is_authenticated %}
+      <a href="{% url 'blog:new' category.id %}" class="blog-btn">New article</a>
+      <div class="clear"></div>
+    {% endif %}
     {% include 'blog/_articles.html' %}
   </article>
 {% endblock %}

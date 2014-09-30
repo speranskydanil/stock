@@ -19,7 +19,6 @@ def contact(request):
             Message.objects.create(subject=form.cleaned_data['subject'], message=form.cleaned_data['message'])
             messages.info(request, 'The message is sent.')
             return redirect('blog:index')
-
     else:
         form = ContactForm()
 

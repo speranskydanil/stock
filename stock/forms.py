@@ -2,14 +2,14 @@ from django import forms
 from django.contrib.auth.models import User
 
 class ContactForm(forms.Form):
-    subject = forms.CharField(max_length=120, widget=forms.TextInput(attrs={ 'class': 'form-control' }))
-    message = forms.CharField(widget=forms.Textarea(attrs={ 'class': 'form-control' }))
+    subject = forms.CharField(max_length=120)
+    message = forms.CharField(widget=forms.Textarea())
 
 class SignUpForm(forms.Form):
-    username = forms.CharField(max_length=120, widget=forms.TextInput(attrs={ 'class': 'form-control' }))
-    email = forms.EmailField(max_length=120, widget=forms.TextInput(attrs={ 'class': 'form-control' }))
-    password = forms.CharField(max_length=120, widget=forms.PasswordInput(attrs={ 'class': 'form-control' }))
-    password_confirmation = forms.CharField(max_length=120, widget=forms.PasswordInput(attrs={ 'class': 'form-control' }))
+    username = forms.CharField(max_length=120)
+    email = forms.EmailField(max_length=120)
+    password = forms.CharField(max_length=120, widget=forms.PasswordInput())
+    password_confirmation = forms.CharField(max_length=120, widget=forms.PasswordInput())
 
     def clean(self):
         username = self.cleaned_data.get('username')

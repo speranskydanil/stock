@@ -1,7 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.decorators.http import require_GET
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from blog.models import Article, Category
+from blog.forms import ArticleForm
 
 _render = render
 
@@ -31,6 +34,20 @@ def index(request):
 def show(request, id):
     article = Article.objects.get(id=id)
     return render(request, 'blog/show.html', { 'article': article })
+
+@login_required
+def new(request, category = None):
+    if request.method == 'POST':
+        form = ArticleForm(request.POST)
+
+        if form.is_valid():
+            article = form.save()
+            messages.info(request, 'The article is created.')
+            return redirect('blog:show', article.id)
+    else:
+        form = ArticleForm(initial={ 'category': category })
+
+    return render(request, 'blog/new.html', { 'form': form })
 
 @require_GET
 def show_category(request, id):

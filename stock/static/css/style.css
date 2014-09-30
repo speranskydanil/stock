@@ -11,6 +11,10 @@ h3 {
   margin: 0px 0px 10px 0px;
 }
 
+form {
+  margin-bottom: 20px;
+}
+
 body > .wrapper {
   min-height: 100%;
   margin-bottom: -102px;
