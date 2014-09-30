@@ -18,7 +18,7 @@ class Article(models.Model):
     title = models.CharField(max_length=240)
     content = models.TextField()
     publication_date = models.DateTimeField()
-    author = models.ForeignKey(User, default=User.objects.get(username='admin').pk)
+    author = models.ForeignKey(User, default=1)
 
     def __unicode__(self):
         return self.title

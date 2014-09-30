@@ -49,3 +49,8 @@ for category in Category.objects.all():
         publication_date = datetime(choice(range(2012, 2015)), choice(range(1, 10)), choice(range(1, 25)), tzinfo=timezone.utc)
         category.article_set.create(title=text(2, 4), content=html(300, 1200), publication_date=publication_date)
 
+from django.contrib.auth.models import User
+
+editor = User.objects.create_user('editor', 'editor@mail.ru', 'jj')
+Category.objects.first().article_set.create(title=text(2, 4), content=html(300, 1200), author=editor)
+
