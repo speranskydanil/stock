@@ -31,5 +31,7 @@ $(document).ready(function () {
       count.text(data.likes_count);
     });
   });
+
+  $('.summernote').summernote();
 });
 

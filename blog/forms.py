@@ -6,3 +6,7 @@ class ArticleForm(forms.ModelForm):
         model = Article
         fields = ['category', 'title', 'content']
 
+        widgets = {
+            'content': forms.Textarea(attrs={ 'class': 'summernote' })
+        }
+

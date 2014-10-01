@@ -104,7 +104,10 @@ STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
 PIPELINE_CSS = {
     'main': {
         'source_filenames': (
-          'css/*.css',
+          'css/bootstrap.css',
+          'css/summernote.css',
+          'css/summernote-bs3.css',
+          'css/style.css',
           'blog/css/*.css'
         ),
         'output_filename': 'css/main.css'
@@ -114,7 +117,11 @@ PIPELINE_CSS = {
 PIPELINE_JS = {
     'main': {
         'source_filenames': (
-          'js/*.js',
+          'js/html5shiv.js',
+          'js/jquery.js',
+          'js/bootstrap.js',
+          'js/summernote.js',
+          'js/script.js',
           'blog/js/*.js'
         ),
         'output_filename': 'js/main.js',
