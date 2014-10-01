@@ -21,6 +21,12 @@
         <b>Author:</b>
         {% link_to article.author.username 'user_profile' article.author.id %}
       </div>
+      <div class="like">
+        <button>
+          <span class="glyphicon glyphicon-star"></span>
+        </button>
+        <span class="count">{{ article.like_set.count }}</span>
+      </div>
     </article>
   {% endfor %}
 </section>

@@ -41,6 +41,26 @@
   display: block;
 }
 
+.articles article .like {
+  color: #555;
+  font-weight: bold;
+}
+
+.articles article .author {
+  margin-bottom: 10px;
+}
+
+.articles article .like button {
+  margin-right: 10px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  background-image: url(../images/texture.png);
+  background-color: #eee;
+  outline: none;
+  transition: all 0.2s;
+}
+
 .article {
   margin-bottom: 20px;
 }
