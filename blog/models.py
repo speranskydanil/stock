@@ -22,6 +22,7 @@ class Article(models.Model):
                                  strip=False)
     publication_date = models.DateTimeField()
     author = models.ForeignKey(User, default=1)
+    verified = models.BooleanField(default=False)
 
     def __unicode__(self):
         return self.title

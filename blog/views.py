@@ -10,7 +10,7 @@ def render(request, template, context):
 
 @require_GET
 def index(request):
-    articles = paginated(Article.objects.select_related().all(), request)
+    articles = paginated(Article.objects.select_related().filter(verified=True), request)
     return render(request, 'blog/index.html', { 'articles': articles })
 
 @require_GET
@@ -56,6 +56,6 @@ def edit(request, id):
 @require_GET
 def show_category(request, id):
     category = get_object_or_404(Category, pk=id)
-    articles = paginated(category.article_set.all(), request)
+    articles = paginated(category.article_set.filter(verified=True), request)
     return render(request, 'blog/show_category.html', { 'category': category, 'articles': articles })
 
