@@ -1,10 +1,13 @@
 {% extends 'base.html' %}
 
+{% load cache %}
+
 {% block content %}
   <div class="row">
     <section class="col-md-9">
       {% block blog_content%}{% endblock %}
     </section>
+    {% cache 20 blockaside %}
     <aside class="sidebar col-md-3">
       <section class="recent_articles_block">
         <h3>Recent articles:</h3>
@@ -53,6 +56,7 @@
         {% endfor %}
       </section>
     </aside>
+    {% endcache %}
   </div>
 {% endblock %}
 

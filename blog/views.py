@@ -4,8 +4,8 @@ _render = render
 
 def render(request, template, context):
     context['categories'] = Category.objects.select_related().all()
-    context['recent_articles'] = Article.objects.select_related().all()[:5]
-    context['most_popular'] = Article.objects.annotate(likes_count=Count('like')).order_by('-likes_count')[:5]
+    context['recent_articles'] = Article.objects.select_related().filter(verified=True)[:5]
+    context['most_popular'] = Article.objects.filter(verified=True).annotate(likes_count=Count('like')).order_by('-likes_count')[:5]
     context['location'] = 'blog'
     return _render(request, template, context)
 
