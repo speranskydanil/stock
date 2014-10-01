@@ -53,7 +53,7 @@ def profile(request):
 
 @require_GET
 def user_profile(request, id):
-    user = User.objects.get(id=id)
+    user = get_object_or_404(User, pk=id)
     articles = paginated(Article.objects.select_related().filter(author=user), request)
     return render(request, 'user_profile.html', { 'user': user, 'articles': articles })
 

@@ -15,7 +15,7 @@ def index(request):
 
 @require_GET
 def show(request, id):
-    article = Article.objects.get(id=id)
+    article = get_object_or_404(Article, pk=id)
     return render(request, 'blog/show.html', { 'article': article })
 
 @login_required
@@ -36,7 +36,7 @@ def new(request, category = None):
 
 @login_required
 def edit(request, id):
-    article = Article.objects.get(id=id)
+    article = get_object_or_404(Article, pk=id)
 
     if article.author != request.user:
         return redirect('blog:index')
@@ -55,7 +55,7 @@ def edit(request, id):
 
 @require_GET
 def show_category(request, id):
-    category = Category.objects.get(id=id)
+    category = get_object_or_404(Category, pk=id)
     articles = paginated(category.article_set.all(), request)
     return render(request, 'blog/show_category.html', { 'category': category, 'articles': articles })
 
