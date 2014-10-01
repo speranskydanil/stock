@@ -17,8 +17,9 @@ class Category(models.Model):
 class Article(models.Model):
     category = models.ForeignKey(Category)
     title = models.CharField(max_length=240)
-    content = SanitizedTextField(allowed_tags=['h3', 'h4', 'p', 'a', 'img'],
-                                 allowed_attributes=['href', 'src'],
+    content = SanitizedTextField(allowed_tags=['h3', 'h4', 'p', 'a', 'img', 'b', 'i', 'span', 'br', 'ul', 'ol', 'li', 'pre', 'blockquote', 'hr'],
+                                 allowed_attributes=['href', 'src', 'style'],
+                                 allowed_styles=['font-style', 'font-weight', 'text-decoration', 'vertical-align', 'text-align', 'color', 'background-color'],
                                  strip=False)
     publication_date = models.DateTimeField()
     author = models.ForeignKey(User, default=1)
