@@ -1,10 +1,4 @@
-from django.shortcuts import render, redirect
-from django.views.decorators.http import require_GET
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.contrib import messages
-from django.contrib.auth.decorators import login_required
-from blog.models import Article, Category
-from blog.forms import ArticleForm
+from stock.imports import *
 
 _render = render
 
@@ -13,17 +7,6 @@ def render(request, template, context):
     context['recent_articles'] = Article.objects.select_related().all()[:7]
     context['location'] = 'blog'
     return _render(request, template, context)
-
-def paginated(objects, request):
-    paginator = Paginator(objects, 20)
-    page = request.GET.get('page')
-
-    try:
-        return paginator.page(page)
-    except PageNotAnInteger:
-        return paginator.page(1)
-    except EmptyPage:
-        return paginator.page(paginator.num_pages)
 
 @require_GET
 def index(request):
