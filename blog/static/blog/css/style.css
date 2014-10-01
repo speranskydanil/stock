@@ -72,6 +72,31 @@
   margin-bottom: 10px;
 }
 
+.article .author {
+  margin-bottom: 10px;
+}
+
+.article .like {
+  color: #555;
+  font-weight: bold;
+}
+
+.article .like button {
+  margin-right: 10px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  background-image: url(../images/texture.png);
+  background-color: #eee;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.article .like button:hover,
+.article .like button.active {
+  background-color: #cec;
+}
+
 .category h1 {
   margin: 0px;
   margin-bottom: 20px;
@@ -154,6 +179,7 @@
   color: #f5f5f5;
   border-radius: 5px;
   box-shadow: 1px 1px 2px 0px rgba(128, 128, 128, 0.5);
+  transition: all 0.2s;
 }
 
 .blog-btn:hover {

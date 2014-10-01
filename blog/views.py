@@ -16,7 +16,9 @@ def index(request):
 @require_GET
 def show(request, id):
     article = get_object_or_404(Article, pk=id)
-    return render(request, 'blog/show.html', { 'article': article })
+    likes = article.like_set.all()
+    is_liked = likes.filter(user=request.user).exists()
+    return render(request, 'blog/show.html', { 'article': article, 'likes': likes, 'is_liked': is_liked })
 
 @login_required
 def new(request, category = None):
@@ -52,6 +54,23 @@ def edit(request, id):
         form = ArticleForm(instance=article)
 
     return render(request, 'blog/edit.html', { 'form': form })
+
+@require_POST
+@login_required
+def like(request, id):
+    article = get_object_or_404(Article, pk=id)
+
+    likes = article.like_set.all()
+    like = article.like_set.filter(user=request.user)
+
+    if like.exists():
+        like.delete()
+        active = False
+    else:
+        article.like_set.create(user=request.user)
+        active = True
+
+    return HttpResponse(json.dumps({ 'active': active, 'likes_count': likes.count() }), mimetype='application/json')
 
 @require_GET
 def show_category(request, id):

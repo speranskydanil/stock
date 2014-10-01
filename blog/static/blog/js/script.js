@@ -16,5 +16,20 @@ $(document).ready(function () {
         .css('width', 'auto');
     }
   });
+
+  $('.article .like button').click(function () {
+    var like = $(this).parent();
+    var csrf = like.find('input');
+    var button = like.find('button');
+    var count = like.find('.count');
+
+    var data = {};
+    data[csrf.attr('name')] = csrf.attr('value');
+
+    $.post(like.data('url'), data, function (data) {
+      button.attr('class', data.active ? 'active' : '');
+      count.text(data.likes_count);
+    });
+  });
 });
 

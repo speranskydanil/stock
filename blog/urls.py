@@ -7,4 +7,5 @@ urlpatterns = patterns('blog.views',
     url(r'^category/(\d+)/new$', 'new', name='new'),
     url(r'^(\d+)/edit$', 'edit', name='edit'),
     url(r'^category/(\d+)$', 'show_category', name='show_category'),
+    url(r'^(\d+)/like$', 'like', name='like'),
 )

@@ -61,6 +61,7 @@ main nav a {
   font-weight: bold;
   color: #462;
   border-radius: 5px;
+  transition: all 0.2s;
 }
 
 main nav a:hover,
@@ -98,6 +99,7 @@ main nav.blog .blog {
   color: #f5f5f5;
   border-radius: 5px;
   box-shadow: 1px 1px 2px 0px rgba(128, 128, 128, 0.5);
+  transition: all 0.2s;
 }
 
 .auth form input:hover,

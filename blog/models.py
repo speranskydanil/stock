@@ -35,3 +35,7 @@ class Article(models.Model):
     class Meta:
         ordering = ['-publication_date']
 
+class Like(models.Model):
+    user = models.ForeignKey(User)
+    article = models.ForeignKey(Article)
+
