@@ -72,3 +72,9 @@ def profile(request):
     articles = paginated(Article.objects.select_related().filter(author=request.user), request)
     return render(request, 'profile.html', { 'articles': articles })
 
+@require_GET
+def user_profile(request, id):
+    user = User.objects.get(id=id)
+    articles = paginated(Article.objects.select_related().filter(author=user), request)
+    return render(request, 'user_profile.html', { 'user': user, 'articles': articles })
+

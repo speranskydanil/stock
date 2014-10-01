@@ -15,5 +15,6 @@ urlpatterns = patterns('',
     url(r'^sign_up$', 'stock.views.sign_up', name='sign_up'),
     url(r'^sign_out$', 'django.contrib.auth.views.logout', { 'next_page': '/' }, name='sign_out'),
     url(r'^profile$', 'stock.views.profile', name='profile'),
+    url(r'^profile/(\d+)$', 'stock.views.user_profile', name='user_profile'),
 )
 
