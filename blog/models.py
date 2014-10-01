@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from datetime import datetime
 from django.contrib.auth.models import User
+from sanitizer.models import SanitizedCharField, SanitizedTextField
 
 class Category(models.Model):
     title = models.CharField(max_length=120)
@@ -16,7 +17,9 @@ class Category(models.Model):
 class Article(models.Model):
     category = models.ForeignKey(Category)
     title = models.CharField(max_length=240)
-    content = models.TextField()
+    content = SanitizedTextField(allowed_tags=['h3', 'h4', 'p', 'a', 'img'],
+                                 allowed_attributes=['href', 'src'],
+                                 strip=False)
     publication_date = models.DateTimeField()
     author = models.ForeignKey(User, default=1)
 
