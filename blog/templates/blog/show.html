@@ -14,7 +14,11 @@
       {% link_to article.category.title 'blog:show_category' article.category.id %}
     </div>
     <h1>{{ article.title }}</h1>
-    <div>{{ article.content|safe }}</div>
+    <div class="content">{{ article.content|safe }}</div>
+    <div class="author">
+      <b>Author:</b>
+      {% link_to article.author.username 'user_profile' article.author.id %}
+    </div>
   </article>
 
   {% if article.author == user %}

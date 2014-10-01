@@ -33,6 +33,10 @@
   font-size: 14px;
 }
 
+.articles article .content {
+  margin-bottom: 10px;
+}
+
 .articles article .read-more {
   display: block;
 }
@@ -62,6 +66,10 @@
 
 .article .category span {
   font-size: 14px;
+}
+
+.article .content {
+  margin-bottom: 10px;
 }
 
 .category h1 {
