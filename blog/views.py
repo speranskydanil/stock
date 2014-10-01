@@ -17,7 +17,10 @@ def index(request):
 def show(request, id):
     article = get_object_or_404(Article, pk=id)
     likes = article.like_set.all()
-    is_liked = likes.filter(user=request.user).exists()
+    if request.user.is_authenticated():
+        is_liked = likes.filter(user=request.user).exists()
+    else:
+        is_liked = False
     return render(request, 'blog/show.html', { 'article': article, 'likes': likes, 'is_liked': is_liked })
 
 @login_required

@@ -58,6 +58,7 @@
   background-image: url(../images/texture.png);
   background-color: #eee;
   outline: none;
+  cursor: default;
   transition: all 0.2s;
 }
 
@@ -109,11 +110,16 @@
   background-image: url(../images/texture.png);
   background-color: #eee;
   outline: none;
+  cursor: default;
   transition: all 0.2s;
 }
 
-.article .like button:hover,
-.article .like button.active {
+.article .like.active button {
+  cursor: pointer;
+}
+
+.article .like.active button:hover,
+.article .like.active button.active {
   background-color: #cec;
 }
 

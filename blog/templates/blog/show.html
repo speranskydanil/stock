@@ -19,7 +19,7 @@
       <b>Author:</b>
       {% link_to article.author.username 'user_profile' article.author.id %}
     </div>
-    <div class="like" data-url="{% url 'blog:like' article.id %}">
+    <div class="like {% if user.is_authenticated %}active{% endif %}" data-url="{% url 'blog:like' article.id %}">
       {% csrf_token %}
       <button class="{% if is_liked %}active{% endif %}">
         <span class="glyphicon glyphicon-star"></span>

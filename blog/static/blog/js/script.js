@@ -17,7 +17,7 @@ $(document).ready(function () {
     }
   });
 
-  $('.article .like button').click(function () {
+  $('.article .like.active button').click(function () {
     var like = $(this).parent();
     var csrf = like.find('input');
     var button = like.find('button');
