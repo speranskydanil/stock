@@ -24,6 +24,24 @@
           </article>
         {% endfor %}
       </section>
+      <section class="most_popular_block">
+        <h3>Most popular:</h3>
+
+        {% for article in most_popular %}
+          <article>
+            <time>
+              <span class="glyphicon glyphicon-time"></span>
+              {{ article.publication_date|date:'Y-m-d H:m' }}
+            </time>
+            <div class="category">
+              <span class="glyphicon glyphicon-folder-open"></span>
+              &nbsp;
+              {% link_to article.category.title 'blog:show_category' article.category.id %}
+            </div>
+            {% link_to article.title 'blog:show' article.id 'attrs:class ="link"' %}
+          </article>
+        {% endfor %}
+      </section>
       <section class="categories_block">
         <h3>Categories:</h3>
 

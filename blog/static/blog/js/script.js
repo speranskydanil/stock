@@ -2,7 +2,7 @@ $(document).ready(function () {
   $(window).scroll(function () {
     var block = $('.recent_articles_block');
 
-    if ($(window).width() > 970 && $(window).scrollTop() > 1200) {
+    if ($(window).width() > 970 && $(window).scrollTop() > 1400) {
       if (!block.hasClass('fixed')) {
         block
           .width(block.width())

@@ -129,6 +129,7 @@
 }
 
 .recent_articles_block,
+.most_popular_block,
 .categories_block {
   margin-bottom: 20px;
   padding: 10px;
@@ -138,21 +139,26 @@
 }
 
 .recent_articles_block h3,
+.most_popular_block h3,
 .categories_block h3 {
   margin: 0px;
   margin-bottom: 10px;
 }
 
-.recent_articles_block article {
+.recent_articles_block article,
+.most_popular_block article {
   margin-bottom: 10px;
 }
 
 .recent_articles_block time,
-.recent_articles_block .category {
+.recent_articles_block .category,
+.most_popular_block time,
+.most_popular_block .category {
   font-size: 11px;
 }
 
-.recent_articles_block .link {
+.recent_articles_block .link,
+.most_popular_block .link {
   color: #555;
 }
 
