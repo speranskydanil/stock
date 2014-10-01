@@ -11,7 +11,7 @@ from datetime import datetime
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "stock.settings")
 
 from stock.models import Message
-from blog.models import Category, Article
+from blog.models import Category, Article, Like
 
 Message.objects.create(subject='Spam', message='spam spam spam')
 Message.objects.create(subject='A question #1', message='body of the question #1')
@@ -52,5 +52,17 @@ for category in Category.objects.all():
 from django.contrib.auth.models import User
 
 editor = User.objects.create_user('editor', 'editor@mail.ru', 'jj')
-Category.objects.first().article_set.create(title=text(2, 4), content=html(300, 1200), author=editor, verified=True)
+Category.objects.first().article_set.create(title=text(2, 4), content='<h3>Article about cakes!</h3><img src="http://t2.gstatic.com/images?q=tbn:ANd9GcQTBgPWUV-AGFsxZ9AYXjhmbxAtULkk-JotH_8AkvJhr3UfjGP6">', author=editor, verified=True)
+
+for i in range(1, 20):
+  User.objects.create_user('user' + str(i), 'user@mail.ru', 'jj')
+
+users = User.objects.all()
+articles = Article.objects.all()
+
+for article in articles:
+  n = choice(range(20))
+
+  for i in range(n):
+    article.like_set.create(user=users[i])
 
