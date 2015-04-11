@@ -1,5 +1,5 @@
 {% load staticfiles %}
-{% load compressed %}
+{% load pipeline %}
 
 <!doctype html>
 
@@ -8,11 +8,11 @@
     <meta charset="utf-8">
     <title>Stock | {% block title %}{% endblock %}</title>
 
-    {% compressed_css 'main' %}
+    {% stylesheet 'main' %}
 
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
 
-    {% compressed_js 'main' %}
+    {% javascript 'main' %}
   </head>
 
   <body>

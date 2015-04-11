@@ -8,7 +8,7 @@ class Category(models.Model):
     title = models.CharField(max_length=120)
     description = models.TextField()
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
     class Meta:
@@ -25,7 +25,7 @@ class Article(models.Model):
     author = models.ForeignKey(User, default=1)
     verified = models.BooleanField(default=False)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
     def save(self, *args, **kwargs):

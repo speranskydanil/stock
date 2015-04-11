@@ -1,34 +1,22 @@
 # -*- coding: utf-8 -*-
-from south.utils import datetime_utils as datetime
-from south.db import db
-from south.v2 import SchemaMigration
-from django.db import models
+from __future__ import unicode_literals
+
+from django.db import models, migrations
 
 
-class Migration(SchemaMigration):
+class Migration(migrations.Migration):
 
-    def forwards(self, orm):
-        # Adding model 'Message'
-        db.create_table(u'stock_message', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('theme', self.gf('django.db.models.fields.CharField')(max_length=120)),
-            ('body', self.gf('django.db.models.fields.TextField')()),
-        ))
-        db.send_create_signal(u'stock', ['Message'])
+    dependencies = [
+    ]
 
-
-    def backwards(self, orm):
-        # Deleting model 'Message'
-        db.delete_table(u'stock_message')
-
-
-    models = {
-        u'stock.message': {
-            'Meta': {'object_name': 'Message'},
-            'body': ('django.db.models.fields.TextField', [], {}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'theme': ('django.db.models.fields.CharField', [], {'max_length': '120'})
-        }
-    }
-
-    complete_apps = ['stock']
+    operations = [
+        migrations.CreateModel(
+            name='Message',
+            fields=[
+                ('id', models.AutoField(serialize=False, auto_created=True, verbose_name='ID', primary_key=True)),
+                ('subject', models.CharField(max_length=120)),
+                ('message', models.TextField()),
+                ('created_at', models.DateTimeField(auto_now_add=True)),
+            ],
+        ),
+    ]

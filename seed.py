@@ -10,6 +10,9 @@ from datetime import datetime
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "stock.settings")
 
+import django
+django.setup()
+
 from stock.models import Message
 from blog.models import Category, Article, Like
 
@@ -51,11 +54,11 @@ for category in Category.objects.all():
 
 from django.contrib.auth.models import User
 
-editor = User.objects.create_user('editor', 'editor@mail.ru', 'jj')
+editor = User.objects.create_user('editor', 'editor@mail.ru', 'qq')
 Category.objects.first().article_set.create(title='Article about cakes!', content='<h3>Yes, about cakes!</h3><img src="http://t2.gstatic.com/images?q=tbn:ANd9GcQTBgPWUV-AGFsxZ9AYXjhmbxAtULkk-JotH_8AkvJhr3UfjGP6">', author=editor, verified=True)
 
 for i in range(1, 20):
-  User.objects.create_user('user' + str(i), 'user@mail.ru', 'jj')
+  User.objects.create_user('user' + str(i), 'user@mail.ru', 'qq')
 
 users = User.objects.all()
 articles = Article.objects.all()

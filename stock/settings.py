@@ -8,7 +8,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.6/ref/settings/
 """
 
-from django.template import add_to_builtins
+from django.template.base import add_to_builtins
 
 add_to_builtins('stock.templatetags.helpers')
 
@@ -38,7 +38,6 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'south',
     'pipeline',
     'sanitizer',
     'stock',
@@ -101,6 +100,12 @@ STATIC_ROOT = '/var/www/stock/static'
 
 STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
 
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'pipeline.finders.PipelineFinder'
+)
+
 PIPELINE_CSS = {
     'main': {
         'source_filenames': (
@@ -108,7 +113,7 @@ PIPELINE_CSS = {
           'css/summernote.css',
           'css/summernote-bs3.css',
           'css/style.css',
-          'blog/css/*.css'
+          'blog/css/style.css'
         ),
         'output_filename': 'css/main.css'
     }
@@ -122,7 +127,7 @@ PIPELINE_JS = {
           'js/bootstrap.js',
           'js/summernote.js',
           'js/script.js',
-          'blog/js/*.js'
+          'blog/js/script.js'
         ),
         'output_filename': 'js/main.js',
     }

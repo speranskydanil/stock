@@ -74,7 +74,7 @@ def like(request, id):
         article.like_set.create(user=request.user)
         active = True
 
-    return HttpResponse(json.dumps({ 'active': active, 'likes_count': likes.count() }), mimetype='application/json')
+    return HttpResponse(json.dumps({ 'active': active, 'likes_count': likes.count() }), content_type='application/json')
 
 @require_GET
 def show_category(request, id):
