@@ -19,7 +19,7 @@ class Article(models.Model):
     title = models.CharField(max_length=240)
     content = SanitizedTextField(allowed_tags=['h3', 'h4', 'p', 'a', 'img', 'b', 'i', 'span', 'br', 'ul', 'ol', 'li', 'pre', 'blockquote', 'hr'],
                                  allowed_attributes=['href', 'src', 'style'],
-                                 allowed_styles=['font-style', 'font-weight', 'text-decoration', 'vertical-align', 'text-align', 'color', 'background-color'],
+                                 allowed_styles=['font-style', 'font-weight', 'text-decoration', 'vertical-align', 'text-align', 'color', 'background-color', 'float', 'margin', 'padding'],
                                  strip=False)
     publication_date = models.DateTimeField()
     author = models.ForeignKey(User, default=1)
