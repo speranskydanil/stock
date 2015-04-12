@@ -251,12 +251,6 @@ a:focus {
   -moz-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
 }
 
-.pagination {
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
-  -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
-}
-
 .nav-tabs li a:hover {
   border-color: transparent;
   background: transparent;

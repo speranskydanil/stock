@@ -25,3 +25,22 @@ Learning Django. Basic blog application.
 * service nginx restart
 * ./manage.py collectstatic
 
+## Features
+
+* Users, profile
+* Categories, indexes
+* Articles, pagination, WYSIWYG editor, filtering data
+* Likes
+* Feedback
+* Most popular and most recent articles
+* Administration through Django Admin
+* Responsive design
+
+![screen](https://raw.github.com/speranskydanil/stock/master/screenshot.jpg)
+
+**Author (Speransky Danil):**
+[Personal Page](http://dsperansky.info) |
+[LinkedIn](http://ru.linkedin.com/in/speranskydanil/en) |
+[GitHub](https://github.com/speranskydanil?tab=repositories) |
+[StackOverflow](http://stackoverflow.com/users/1550807/speransky-danil)
+
