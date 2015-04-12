@@ -6,7 +6,10 @@
   <article class="category">
     <h1>{{ category.title }}</h1>
     {% if user.is_authenticated %}
-      {% link_to 'New article' 'blog:new' category.id 'attrs:class="blog-btn"' %}
+      <a href="{% url 'blog:new' category.id %}" class="green-btn green-btn-wi">
+        <span class="glyphicon glyphicon-plus"></span>
+        New article
+      </a>
       <div class="clear"></div>
     {% endif %}
     {% include 'blog/_articles.html' %}

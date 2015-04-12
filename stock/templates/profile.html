@@ -5,7 +5,10 @@
 {% block content %}
   <h2>Profile</h2>
   {% if user.is_authenticated %}
-    {% link_to 'New article' 'blog:new' 'attrs:class="blog-btn"' %}
+    <a href="{% url 'blog:new' %}" class="green-btn green-btn-wi">
+      <span class="glyphicon glyphicon-plus"></span>
+      New article
+    </a>
     <div class="clear"></div>
   {% endif %}
   {% include 'blog/_articles.html' %}

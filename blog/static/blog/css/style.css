@@ -9,26 +9,16 @@
 .articles article > h3 {
   margin: 0px;
   margin-bottom: 10px;
-  padding: 5px 20px;
-  background-image: url(../images/texture.png);
-  background-color: #cdb;
-  border-radius: 5px;
-  font-size: 24px;
+  font-size: 32px;
 }
 
-.articles article > h3 > a {
-  color: #333;
-}
-
-.articles article > h3 > a:hover {
-  color: #555;
-}
-
+.articles article time,
 .articles article .category {
   margin: 4px 0px;
   font-size: 16px;
 }
 
+.articles article time span,
 .articles article .category span {
   font-size: 14px;
 }
@@ -39,27 +29,38 @@
 
 .articles article .read-more {
   display: block;
-}
-
-.articles article .like {
-  color: #555;
-  font-weight: bold;
+  width: 127px;
+  margin-top: 10px;
 }
 
 .articles article .author {
   margin-bottom: 10px;
 }
 
-.articles article .like button {
-  margin-right: 10px;
+.articles article .like {
+  width: 70px;
+  font-weight: bold;
+  color: #555;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+.articles article .like > button {
+  width: 34px;
   padding: 5px 10px;
   border: none;
-  border-radius: 5px;
-  background-image: url(../images/texture.png);
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
   background-color: #eee;
   outline: none;
   cursor: default;
-  transition: all 0.2s;
+}
+
+.articles article .like > span {
+  display: inline-block;
+  width: 34px;
+  margin-left: -4px;
+  text-align: center;
 }
 
 .article {
@@ -73,18 +74,17 @@
 .article > h1 {
   margin: 0px;
   margin-bottom: 10px;
-  padding: 5px 20px;
-  background-image: url(../images/texture.png);
-  background-color: #cdb;
-  border-radius: 5px;
-  font-size: 30px;
+  font-size: 40px;
+  color: #13844c;
 }
 
+.article time,
 .article .category {
   margin: 4px 0px;
   font-size: 18px;
 }
 
+.article time span,
 .article .category span {
   font-size: 14px;
 }
@@ -98,20 +98,30 @@
 }
 
 .article .like {
-  color: #555;
+  width: 70px;
   font-weight: bold;
+  color: #555;
+  border: 1px solid #ddd;
+  border-radius: 3px;
 }
 
-.article .like button {
-  margin-right: 10px;
+.article .like > button {
+  width: 34px;
   padding: 5px 10px;
   border: none;
-  border-radius: 5px;
-  background-image: url(../images/texture.png);
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
   background-color: #eee;
   outline: none;
   cursor: default;
   transition: all 0.2s;
+}
+
+.article .like > span {
+  display: inline-block;
+  width: 34px;
+  margin-left: -4px;
+  text-align: center;
 }
 
 .article .like.active button {
@@ -120,7 +130,14 @@
 
 .article .like.active button:hover,
 .article .like.active button.active {
-  background-color: #cec;
+  background-color: #57c399;
+  color: #fff;
+}
+
+.article .like.active button:hover span,
+.article .like.active button.active span {
+  color: #fff;
+  transition: all 0.2s;
 }
 
 .category h1 {
@@ -133,9 +150,9 @@
 .categories_block {
   margin-bottom: 20px;
   padding: 10px;
-  background: #f5f5f5;
-  border-radius: 5px;
-  font-size: 13px;
+  background: #fcfcfc;
+  border-radius: 3px;
+  box-shadow: 1px 2px 3px 0px rgba(128, 128, 128, 0.25);
 }
 
 .recent_articles_block h3,
@@ -154,7 +171,7 @@
 .recent_articles_block .category,
 .most_popular_block time,
 .most_popular_block .category {
-  font-size: 11px;
+  font-size: 12.5px;
 }
 
 .recent_articles_block .link,
@@ -165,58 +182,5 @@
 .recent_articles_block.fixed {
   position: fixed;
   top: 20px;
-}
-
-.pagination {
-  margin: 0px;
-  margin-bottom: 20px;
-}
-
-.pagination > li > a,
-.pagination > li > a:hover,
-.pagination > .active > a,
-.pagination > .active > a:hover,
-.pagination > .disabled > a,
-.pagination > .disabled > a:hover {
-  background-image: url(../images/texture.png);
-  background-color: #eee;
-  border: 1px solid #bbb;
-  color: #555;
-}
-
-.pagination > .active > a,
-.pagination > .active > a:hover {
-  color: #333;
-  background-color: #ddd;
-}
-
-.pagination > .disabled > a,
-.pagination > .disabled > a:hover {
-  color: #999;
-  background-color: #f5f5f5;
-}
-
-.clear {
-  clear: both;
-}
-
-.blog-btn {
-  display: inline-block;
-  margin-bottom: 20px;
-  padding: 5px 20px;
-  border: none;
-  background-image: url(../images/texture.png);
-  background-color: #482;
-  font-weight: bold;
-  color: #f5f5f5;
-  border-radius: 5px;
-  box-shadow: 1px 1px 2px 0px rgba(128, 128, 128, 0.5);
-  transition: all 0.2s;
-}
-
-.blog-btn:hover {
-  background-color: #371;
-  text-decoration: none;
-  color: #f5f5f5;
 }
 

@@ -15,7 +15,11 @@
       <h3>{% link_to article.title 'blog:show' article.id %}</h3>
       <div class="content">
         {{ article.content|truncatewords_html:200|safe }}
-        {% link_to 'Read more' 'blog:show' article.id 'attrs:class="read-more"' %}
+
+        <a href="{% url 'blog:show' article.id %}" class="green-btn green-btn-wi read-more">
+          <span class="glyphicon glyphicon-arrow-right"></span>
+          Read more
+        </a>
       </div>
       <div class="author">
         <b>Author:</b>

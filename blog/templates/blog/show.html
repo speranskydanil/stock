@@ -29,7 +29,10 @@
   </article>
 
   {% if article.author == user %}
-    {% link_to 'Edit article' 'blog:edit' article.id 'attrs:class="blog-btn"' %}
+    <a href="{% url 'blog:edit' article.id %}" class="green-btn green-btn-wi">
+      <span class="glyphicon glyphicon-pencil"></span>
+      Edit article
+    </a>
   {% endif %}
 {% endblock %}
 

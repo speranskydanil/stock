@@ -16,12 +16,13 @@
   </head>
 
   <body>
-    <div class="wrapper container">
+    <div class="wrapper">
       <header>
+        <img src="/static/images/logo.png">
         <h1>This is the <strong>Stock</strong></h1>
       </header>
 
-      <main>
+      <main class="container">
         {% if messages %}
           {% for message in messages %}
             <div class="alert alert-info">{{ message }}</div>
@@ -29,41 +30,41 @@
         {% endif %}
 
         <div class="row">
-          <nav class="{{ location }} col-md-6">
-            {% link_to 'The Blog' 'blog:index' 'attrs:class="blog"' %}
-            {% link_to 'About Us' 'about' 'attrs:class="about"' %}
-            {% link_to 'Contact Us' 'contact' 'attrs:class="contact"' %}
-          </nav>
+          <div class="col-md-7">
+            <nav class="{{ location }}">
+              {% link_to 'The Blog' 'blog:index' 'attrs:class="blog"' %}
+              {% link_to 'About Us' 'about' 'attrs:class="about"' %}
+              {% link_to 'Contact Us' 'contact' 'attrs:class="contact"' %}
+            </nav>
+          </div>
 
-          <section class="auth col-md-3 col-md-offset-3">
+          <section class="auth col-md-3 col-md-offset-2">
             {% if user.is_authenticated %}
               <span class="glyphicon glyphicon-user"></span>&nbsp;
               {% link_to user.username 'profile' %}
               <form action="{% url 'sign_out' %}" method="post">{% csrf_token %}
-                <input type="submit" value="Sign out">
+                <input type="submit" value="Sign out" class="green-btn">
               </form>
             {% else %}
-              {% link_to 'Sign in' 'sign_in' 'attrs:class="sign-in"' %}
-              {% link_to 'Sign up' 'sign_up' 'attrs:class="sign-up"' %}
+              {% link_to 'Sign in' 'sign_in' 'attrs:class="sign-in green-btn"' %}
+              {% link_to 'Sign up' 'sign_up' 'attrs:class="sign-up green-btn"' %}
             {% endif %}
           </section>
         </div>
 
         {% block content %}{% endblock %}
       </main>
-    </div>
 
-    <div class="container">
       <footer>
-        <div class="row">
-          <section class="links col-md-2">
+        <div class="container">
+          <section class="copyright col-md-3 col-md-offset-3">
+            © Stock 2007–2014
+          </section>
+
+          <section class="links col-md-3">
             {% link_to 'The Blog' 'blog:index' %}
             {% link_to 'About Us' 'about'%}
             {% link_to 'Contact Us' 'contact' %}
-          </section>
-
-          <section class="copyright col-md-2">
-            © Stock 2007–2014
           </section>
         </div>
       </footer>
